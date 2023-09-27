@@ -10,8 +10,8 @@ class MessageDTO {
 
   MessageDTO({
     required this.content,
-    required this.chatAgentDTO,
-    required this.userDTO,
+    this.chatAgentDTO,
+    this.userDTO,
   }) : assert(
           chatAgentDTO != null || userDTO != null,
           "Either userDTO or chatAgentDTO shouldn't be null.",

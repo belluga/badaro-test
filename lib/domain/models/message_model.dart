@@ -9,7 +9,10 @@ class MessageModel {
 
   MessageModel({
     required this.contentValue,
-    required this.chatAgent,
-    required this.user,
-  });
+    this.chatAgent,
+    this.user,
+  }) : assert(
+          chatAgent != null || user != null,
+          "Either user or chatAgent shouldn't be null.",
+        );
 }
