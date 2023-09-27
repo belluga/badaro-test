@@ -1,9 +1,9 @@
 class ChatAgentDTO {
   final String profilePhotoUrl;
-  final String firstName;
+  final String name;
 
   ChatAgentDTO({
     required this.profilePhotoUrl,
-    required this.firstName,
+    required this.name,
   });
 }

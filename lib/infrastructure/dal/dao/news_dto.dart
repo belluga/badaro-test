@@ -1,15 +1,15 @@
 class NewsDTO {
   final String title;
-  final String description;
-  final String imageUrl;
-  final String contentUrl;
-  final String icon;
+  final String content;
+  final String thumbnailUrl;
+  final String redirectUrl;
+  final String iconSlug;
 
   NewsDTO({
     required this.title,
-    required this.description,
-    required this.imageUrl,
-    required this.contentUrl,
-    required this.icon,
+    required this.content,
+    required this.thumbnailUrl,
+    required this.redirectUrl,
+    required this.iconSlug,
   });
 }
