@@ -30,11 +30,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get_it: ^7.6.4
   value_objects:
     # path: ../packages/value_objects
     git:
       url: https://github.com/belluga/value_objects.git
       ref: v0.0.2
+
+  stream_value:
+    # path: ../packages/stream_value
+    git:
+      url: https://github.com/belluga/stream_value.git
+      ref: v0.0.3
 
 
   # The following adds the Cupertino Icons font to your application.

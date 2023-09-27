@@ -32,6 +32,20 @@ class ModelChatAgentTester {
       }
     });
 
+    test('ChatAgentDTO - Only first name', () async {
+      final Map<String, dynamic> _json = {
+        "name": "Test",
+        "profile_photo_url": "",
+      };
+
+      try {
+        final _chatAgentDTO = ChatAgentDTO.fromJson(_json);
+        final ChatAgentModel _model = _chatAgentDTO.toDomain();
+      } catch (e) {
+        expect(e.runtimeType, InvalidValueException<String>);
+      }
+    });
+
     test('ChatAgentDTO - Empty URL', () async {
       final Map<String, dynamic> _json = {
         "name": "Test Agent",
