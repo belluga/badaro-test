@@ -1,8 +1,11 @@
 import 'package:badaro_test/application/controllers/chat/chat_screen_controller.dart';
+import 'package:badaro_test/domain/models/message_model.dart';
+import 'package:badaro_test/presentation/chat/widgets/messages_list_view.dart';
 import 'package:badaro_test/presentation/home/widgets/app_bar_fake.dart';
 import 'package:badaro_test/presentation/home/widgets/main_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:moduler_route/moduler_route.dart';
+import 'package:stream_value/core/stream_value_builder.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -13,6 +16,12 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final _controller = Inject.get<ChatScreenController>()!;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.init();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,21 +70,12 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemCount: 10,
-              itemBuilder: (context, i) {
-                return Container(
-                  decoration: BoxDecoration(border: Border.all()),
-                  height: 80,
-                  child: Row(
-                    children: [
-                      CircleAvatar(),
-                      Text("safasfafafsf asf afs afs asf ")
-                    ],
-                  ),
-                );
-              },
+            child: StreamValueBuilder<List<MessageModel>>(
+              streamValue: _controller.chatMessagesStreamValue,
+              onNullWidget: const CircularProgressIndicator(),
+              builder: (context, messagesList) {
+                return MessagesListView(messagesList: messagesList,);
+              }
             ),
           ),
         ],
