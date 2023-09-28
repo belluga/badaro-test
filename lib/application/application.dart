@@ -1,34 +1,39 @@
-import 'package:badaro_test/presentation/home/home.dart';
+import 'package:badaro_test/application/modules/chat/chat_module.dart';
+import 'package:badaro_test/application/modules/home/home_module.dart';
+import 'package:badaro_test/domain/repository/news_respository_contract.dart';
+import 'package:badaro_test/domain/repository/user_repository_contract.dart';
+import 'package:badaro_test/infrastructure/repositories/news_repository_mock.dart';
+import 'package:badaro_test/infrastructure/repositories/user_repository_mock.dart';
 import 'package:flutter/material.dart';
+import 'package:moduler_route/moduler_route.dart';
 
-class Application extends StatelessWidget {
-  const Application({super.key});
+class Application extends StatelessWidget with Moduler {
+  Application({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      title: 'Badaró',
+      initialRoute: initialRoute(() => HomeModule.routePaths.splash),
+      onGenerateRoute: routeTo,
+      onUnknownRoute: unknownRoute,
+      navigatorObservers: [modulerRouteObserver],
     );
   }
+
+  @override
+  List<Module> get modules => [
+        HomeModule(),
+        ChatModule(),
+      ];
+
+  @override
+  List<Injector> get globalInjections => [
+        Injector<UserRepositoryContract>(
+          inject: (arguments) => UserRepostoryMock(),
+        ),
+        Injector<NewsRepositoryContract>(
+          inject: (arguments) => NewsRepositoryMock(),
+        ),
+      ];
 }
