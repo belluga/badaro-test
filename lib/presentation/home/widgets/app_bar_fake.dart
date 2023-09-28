@@ -21,7 +21,7 @@ class AppBarFake extends StatelessWidget {
           width: double.infinity,
           height: 100,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).primaryColor,
           ),
         ),
         appBar,

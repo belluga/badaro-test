@@ -28,7 +28,7 @@ class NewsHighlight extends StatelessWidget {
           height: 150,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(25)),
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).primaryColor,
           ),
           child: Column(
             children: [

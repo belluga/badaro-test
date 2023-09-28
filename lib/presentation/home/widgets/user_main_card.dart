@@ -19,7 +19,7 @@ class UserMainCard extends StatelessWidget {
               width: 4,
               height: 100,
               // height: double.infinity,
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).primaryColor,
             ),
             Expanded(
                 child: Column(
