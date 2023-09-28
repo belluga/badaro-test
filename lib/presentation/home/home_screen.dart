@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           AppBarFake(
             appBar: AppBar(
               elevation: 0,
-              title: MainLogo(),
+              title: const MainLogo(),
               leading: IconButton(
                 onPressed: () {},
                 icon: Icon(Icons.menu),

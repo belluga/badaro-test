@@ -1,8 +1,8 @@
 import 'package:badaro_test/application/controllers/chat/chat_screen_controller.dart';
 import 'package:badaro_test/domain/models/message_model.dart';
+import 'package:badaro_test/presentation/chat/widgets/by_badaro.dart';
 import 'package:badaro_test/presentation/chat/widgets/messages_list_view.dart';
 import 'package:badaro_test/presentation/home/widgets/app_bar_fake.dart';
-import 'package:badaro_test/presentation/home/widgets/main_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:moduler_route/moduler_route.dart';
 import 'package:stream_value/core/stream_value_builder.dart';
@@ -85,7 +85,7 @@ class _ChatScreenState extends State<ChatScreen> {
             mainAxisSize: MainAxisSize.min,
         children: [
           TextField(),
-          MainLogo(),
+          ByBadaro(),
         ],
       )),
     );

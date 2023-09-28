@@ -1,6 +1,8 @@
 import 'package:badaro_test/application/controllers/home/splash_screen_controller.dart';
 import 'package:badaro_test/application/modules/home/home_module.dart';
-import 'package:badaro_test/presentation/home/widgets/main_logo.dart';
+import 'package:badaro_test/presentation/home/widgets/logo_splash.dart';
+import 'package:badaro_test/presentation/home/widgets/progress_indicator_custom.dart';
+import 'package:badaro_test/presentation/home/widgets/splash_screen_note.dart';
 import 'package:flutter/material.dart';
 import 'package:moduler_route/moduler_route.dart';
 
@@ -23,18 +25,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: SafeArea(
+      backgroundColor: Theme.of(context).colorScheme.secondary,
+      body: const SafeArea(
         child: Column(
           children: [
-            MainLogo(),
+            LogoSplash(),
             Expanded(
                 child: Center(
-              child: CircularProgressIndicator(),
+              child: ProgressIndicatorCustom(),
             )),
-            Container(
-              child: Text("Aplicativo Exclusivo", style: TextStyle(color: Colors.white),),
-            ),
+            SpplashScreenNote(noteText: "Aplicativo esclusivo"),
           ],
         ),
       ),
