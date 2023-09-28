@@ -1,3 +1,3 @@
 abstract class DisposableController {
-  void dispose();
+  void dispose(){}
 }
