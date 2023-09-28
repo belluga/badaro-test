@@ -1,12 +1,12 @@
 import 'package:badaro_test/domain/repository/chat_repository_contract.dart';
 import 'package:badaro_test/domain/repository/news_respository_contract.dart';
 import 'package:badaro_test/domain/repository/user_repository_contract.dart';
+import 'package:badaro_test/infrastructure/repositories/chat_repository_mock.dart';
+import 'package:badaro_test/infrastructure/repositories/news_repository_mock.dart';
+import 'package:badaro_test/infrastructure/repositories/user_repository_mock.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 
-import 'unit_test/infrastructure/repositories/chat_repository_mock.dart';
-import 'unit_test/infrastructure/repositories/news_repository_mock.dart';
-import 'unit_test/infrastructure/repositories/user_repository_mock.dart';
 import 'unit_test/testers/dto/dto_chat_agent_tester.dart';
 import 'unit_test/testers/dto/dto_message_tester.dart';
 import 'unit_test/testers/model/model_chat_agent_tester.dart';
