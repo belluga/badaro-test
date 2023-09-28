@@ -68,12 +68,10 @@ class NewsPersonalizedCard extends StatelessWidget {
   }
 
   Future<void> _launchUrl() async {
-    final Uri? _uri = newsModel.redirectUriValue.value;
-
-    if (_uri != null) {
-      if (await canLaunchUrl(_uri)) {
-        launchUrl(_uri);
-      }
+    try {
+      launchUrl(newsModel.redirectUriValue.value!);
+    } catch (e) {
+      debugPrint(e.toString());
     }
   }
 }
